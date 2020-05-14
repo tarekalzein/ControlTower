@@ -69,6 +69,8 @@
     </Compile>
     <Compile Include="Enums\Airlines.cs" />
     <Compile Include="Flight.cs" />
+    <Compile Include="FlightEventInfo.cs" />
+    <Compile Include="FlightStatusChangeEvent.cs" />
     <Compile Include="FlightWindow.xaml.cs">
       <DependentUpon>FlightWindow.xaml</DependentUpon>
     </Compile>

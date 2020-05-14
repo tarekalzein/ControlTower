@@ -5,18 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ControlTower"
         mc:Ignorable="d"
-        Title="Control Tower" Height="450" Width="800">
-    <Grid>
-        <ListView HorizontalAlignment="Left" Height="325" Margin="10,10,0,0" VerticalAlignment="Top" Width="772">
+        Title="Control Tower" Height="450" Width="554">
+    <Grid Margin="0,0,2,0">
+        <ListView Name="flightsLv" Height="325" Margin="20,10,19,0" VerticalAlignment="Top" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Flight Code" Width="120" DisplayMemberBinding="{Binding FlightCode}"/>
+                    <GridViewColumn Header="Status" Width="200" DisplayMemberBinding="{Binding FlightStatus}" />
+                    <GridViewColumn Header="Time" Width="180" DisplayMemberBinding="{Binding Time}"/>
                 </GridView>
             </ListView.View>
         </ListView>
         <Label Content="Next Flight" HorizontalAlignment="Left" Margin="10,360,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="16"/>
-        <Button Content="Send next airplane to Runway" FontWeight="Bold" FontSize="16" Margin="490,355,32,0" VerticalAlignment="Top" Height="40" Click="Button_Click"/>
-        <ComboBox Name="airlinesCombobox" HorizontalAlignment="Left" Margin="110,355,0,0" VerticalAlignment="Top" Width="50" Height="40" FontWeight="Bold" VerticalContentAlignment="Center" FontSize="14"/>
+        <Button Content="Send next airplane to Runway" FontWeight="Bold" FontSize="16" Margin="280,355,19,0" VerticalAlignment="Top" Height="40" Click="Button_Click"/>
+        <ComboBox Name="airlinesCombobox" HorizontalAlignment="Left" Margin="110,355,0,0" VerticalAlignment="Top" Width="50" Height="40" FontWeight="Bold" VerticalContentAlignment="Center" FontSize="14" SelectedIndex="0"/>
         <TextBox Name="flightNumberTxt" HorizontalAlignment="Left" Height="40" Margin="160,355,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="100" FontSize="14" VerticalContentAlignment="Center"/>
 
     </Grid>

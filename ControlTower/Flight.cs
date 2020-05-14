@@ -7,27 +7,19 @@ using System.Threading.Tasks;
 
 namespace ControlTower
 {
-    class Flight
+    public class Flight
     {
-        Airlines flightAirline;
-        int flightNumber;
-        string flightStatus;
+        //TODO: Check if there is any need for flight status.
+        string flightCode;
         string flightImagePath;
-        bool isStarted;
         public Flight()
         {
-            flightAirline = FlightAirline;
-            flightNumber = FlightNumber;
-            flightStatus = FlightStatus;
+            flightCode = FlightCode;
             flightImagePath = FlightImagePath;
-            isStarted = IsStarted;
 
         }
         public Airlines FlightAirline { get; set; }
-        public string FlightStatus { get; set; }
         public string FlightImagePath { get; set; }
-        public int FlightNumber { get; set; }
-
-        public bool IsStarted { get; set; }
+        public string FlightCode { get; set; }
     }
 }

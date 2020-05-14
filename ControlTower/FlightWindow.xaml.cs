@@ -22,6 +22,40 @@ namespace ControlTower
     {
         private Flight flight;
 
+        // Step 1 - Create a delegate
+        public delegate void FlightEventHandler(object source, FlightEventInfo eventInfo);
+
+        //Step 2- create Events
+        public event FlightEventHandler FlightStarted;
+        public event FlightEventHandler FlightStatusChanged;
+        public event FlightEventHandler FlightLanded;
+
+        //Step 3- Raise the events
+
+        protected virtual void OnFlightStarted(Flight flight)
+        {
+            if(FlightStarted!=null)
+            {
+                FlightStarted(this, new FlightEventInfo() { Flight=flight });
+            }
+        }
+
+        protected virtual void OnFlightStatusChanged(Flight flight, string status)
+        {
+            if(FlightStatusChanged!=null)
+            {                
+                FlightStatusChanged(this, new FlightEventInfo(){Flight=flight,Status=status } );
+            }
+        }
+
+        protected virtual void OnFlightLanded(Flight flight)
+        {
+            if(FlightLanded!=null)
+            {
+                FlightLanded(this, new FlightEventInfo() { Flight = flight });
+            }
+        }
+
         /// <summary>
         /// Default Constructor
         /// </summary>
@@ -33,27 +67,56 @@ namespace ControlTower
         {
             InitializeComponent();
 
+            //Create the Flight object for this window.
             flight = new Flight
             {
                 FlightAirline = airline,
-                FlightNumber = flightNumber,
+                FlightCode = airline.ToString() + " " + flightNumber.ToString(),
                 FlightImagePath = ImagePathFinder(airline),
-                IsStarted = false,
-                FlightStatus = "Some status",
             };
             InitializeComponent();
 
+            //Set GUI items.
             flightImage.Source = new BitmapImage(new Uri("/ControlTower;component"+flight.FlightImagePath, UriKind.Relative));
-            flightNumberLbl.Content = flight.FlightAirline.ToString() + " " + flight.FlightNumber.ToString();
+            flightNumberLbl.Content = flight.FlightCode;
+            for (int i=0;i<181;i+=10)
+            {
+                statusCmb.Items.Add(i + " deg");
+            }    
+
+
+            //Disable Combobox and Land button by default on start.
             landBtn.IsEnabled = false;
             statusCmb.IsEnabled = false;
-            //while(!flight.IsStarted)
-            //{
-
-
-            //}
 
         }
+        private void startBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //Toggle buttons after Flight Start is initiated.
+            startBtn.IsEnabled = false;
+            landBtn.IsEnabled = true;
+            statusCmb.IsEnabled = true;
+
+            //Publish : Flight Start.
+            OnFlightStarted(flight);
+        }
+
+        private void statusCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //TODO: Check if not null.
+            OnFlightStatusChanged(flight,statusCmb.SelectedItem.ToString());
+        }
+
+        private void landBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OnFlightLanded(flight); 
+            this.Close();
+        }
+
+
+
+        #region "Helper Function"
+
         private string ImagePathFinder(Airlines airline)
         {
             string imagePath = "";
@@ -82,13 +145,9 @@ namespace ControlTower
             return imagePath;
         }
 
-        private void startBtn_Click(object sender, RoutedEventArgs e)
-        {
-            startBtn.IsEnabled = false;
-            landBtn.IsEnabled = true;
-            statusCmb.IsEnabled = true;
-            flight.IsStarted = true;
-        }
+        #endregion
+
+
     }
 
 }
