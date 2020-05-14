@@ -25,7 +25,14 @@ namespace ControlTower
         {
             InitializeComponent();
             airlinesCombobox.ItemsSource = Enum.GetValues(typeof(Airlines)).Cast<Airlines>();
+            
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Airlines airline = (Airlines)Enum.Parse(typeof(Airlines), airlinesCombobox.Text);
+            FlightWindow flightWindow = new FlightWindow(airline, int.Parse(flightNumberTxt.Text));
+            flightWindow.Show();
         }
     }
 }

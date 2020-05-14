@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControlTower.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,18 +9,25 @@ namespace ControlTower
 {
     class Flight
     {
-        string flightCode;
+        Airlines flightAirline;
+        int flightNumber;
         string flightStatus;
-        string flightImage;
+        string flightImagePath;
+        bool isStarted;
         public Flight()
         {
-            flightCode = FlightCode;
+            flightAirline = FlightAirline;
+            flightNumber = FlightNumber;
             flightStatus = FlightStatus;
-            flightImage = FlightImage;
+            flightImagePath = FlightImagePath;
+            isStarted = IsStarted;
 
         }
-        public string FlightCode { get; set; }
+        public Airlines FlightAirline { get; set; }
         public string FlightStatus { get; set; }
-        public string FlightImage { get; set; }
+        public string FlightImagePath { get; set; }
+        public int FlightNumber { get; set; }
+
+        public bool IsStarted { get; set; }
     }
 }

@@ -15,9 +15,9 @@
             </ListView.View>
         </ListView>
         <Label Content="Next Flight" HorizontalAlignment="Left" Margin="10,360,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="16"/>
-        <Button Content="Send next airplane to Runway" FontWeight="Bold" FontSize="16" Margin="490,355,32,0" VerticalAlignment="Top" Height="40"/>
+        <Button Content="Send next airplane to Runway" FontWeight="Bold" FontSize="16" Margin="490,355,32,0" VerticalAlignment="Top" Height="40" Click="Button_Click"/>
         <ComboBox Name="airlinesCombobox" HorizontalAlignment="Left" Margin="110,355,0,0" VerticalAlignment="Top" Width="50" Height="40" FontWeight="Bold" VerticalContentAlignment="Center" FontSize="14"/>
-        <TextBox HorizontalAlignment="Left" Height="40" Margin="160,355,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="100" FontSize="14" VerticalContentAlignment="Center"/>
+        <TextBox Name="flightNumberTxt" HorizontalAlignment="Left" Height="40" Margin="160,355,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="100" FontSize="14" VerticalContentAlignment="Center"/>
 
     </Grid>
 </Window>

@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ControlTower"
         mc:Ignorable="d"
-        Title="Flight Window" Height="450" Width="514">
+        Title="Flight Window" Height="462" Width="514">
     <Grid>
-        <Image HorizontalAlignment="Left" Height="285" Margin="10,55,0,0" VerticalAlignment="Top" Width="486"/>
-        <Button Content="Start" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,345,0,0" VerticalAlignment="Top" Width="105" Height="45"/>
-        <ComboBox HorizontalAlignment="Left" Margin="145,345,0,0" VerticalAlignment="Top" Width="220" Height="45"/>
-        <Button Content="Land" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="391,345,0,0" VerticalAlignment="Top" Width="105" Height="45"/>
-        <Label Content="Flight Nr." FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="175" Height="40"/>
+        <Image x:Name="flightImage" Stretch="UniformToFill"  HorizontalAlignment="Left" Height="285" Margin="10,55,0,0" VerticalAlignment="Top" Width="486"/>
+        <Button Name="startBtn" Content="Start" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="30,361,0,0" VerticalAlignment="Top" Width="85" Height="45" Click="startBtn_Click"/>
+        <ComboBox Name="statusCmb" HorizontalAlignment="Left" Margin="145,361,0,0" VerticalAlignment="Top" Width="220" Height="45"/>
+        <Button Name="landBtn" Content="Land" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="391,361,0,0" VerticalAlignment="Top" Width="84" Height="45"/>
+        <Label Content="Flight Nr." FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="40"/>
+        <Label Name="flightNumberLbl" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="80" Height="40"/>
     </Grid>
 </Window>

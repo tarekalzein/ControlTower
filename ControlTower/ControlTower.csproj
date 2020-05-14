@@ -106,5 +106,20 @@
   <ItemGroup>
     <Resource Include="Images\SAS.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\british-airways.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ICE_2-984x554.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\A350-900_Lufthansa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Air_Europa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\finnair.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
